@@ -1,0 +1,43 @@
+{
+  "name": "web-push-example",
+  "version": "1.0.0",
+  "description": "Node.js server &amp; browser client example of Web Push Notification.",
+  "main": "index.js",
+  "scripts": {
+    "start": "node -r esm server.js",
+    "envify": "env $(cat .env | xargs) envify front/index.js > public/index.js",
+    "copy": "copyfiles -u 1 \"front/**/*\" public",
+    "generate-vk": "web-push generate-vapid-keys --json > ./vapid_keys.json",
+    "build": "npm run copy && npm run envify"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/subuta/web-push-example.git"
+  },
+  "author": "subuta <shunta.3110@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/subuta/web-push-example/issues"
+  },
+  "homepage": "https://github.com/subuta/web-push-example#readme",
+  "dependencies": {
+    "dotenv": "^6.0.0",
+    "esm": "^3.0.72",
+    "koa": "^2.5.2",
+    "koa-body": "^4.0.4",
+    "koa-logger": "^3.2.0",
+    "koa-router": "^7.4.0",
+    "koa-send": "^5.0.0",
+    "lodash": "^4.17.10",
+    "lowdb": "^1.0.0",
+    "pem": "^1.12.5",
+    "web-push": "^3.3.2"
+  },
+  "devDependencies": {
+    "clear-module": "^3.0.0",
+    "copyfiles": "^2.0.0",
+    "envify": "^4.1.0",
+    "sane": "^3.0.0",
+    "standard": "^11.0.1"
+  }
+}
